@@ -13,6 +13,7 @@ public class zoomcam : MonoBehaviour
     private Quaternion originalRotation;
     private bool isZoomed = false;
     private float Xrotation;
+    public GameObject crosshair;
     
     void Start()
     {
@@ -30,6 +31,8 @@ public class zoomcam : MonoBehaviour
         if (Input.GetButtonDown("Zoom"))
         {
             isZoomed = !isZoomed; 
+            crosshair.SetActive(isZoomed);
+
         }
 
         if (isZoomed && targetCapsule != null)
