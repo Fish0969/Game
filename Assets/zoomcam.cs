@@ -8,7 +8,7 @@ public class zoomcam : MonoBehaviour
     
     [SerializeField]
     private float zoomSpeed = 5f;
-    
+
     private Vector3 originalPosition;
     private Quaternion originalRotation;
     private bool isZoomed = false;
@@ -17,6 +17,7 @@ public class zoomcam : MonoBehaviour
     
     void Start()
     {
+        
         originalPosition = transform.position;
         originalRotation = transform.rotation;
         Cursor.lockState = CursorLockMode.Locked;
@@ -27,6 +28,7 @@ public class zoomcam : MonoBehaviour
     {
         originalPosition = targetCapsule.position - targetCapsule.forward * 5f + Vector3.up * 2f;
         originalRotation = Quaternion.LookRotation(targetCapsule.position - originalPosition);
+
         
         if (Input.GetButtonDown("Zoom"))
         {
@@ -38,7 +40,7 @@ public class zoomcam : MonoBehaviour
         if (isZoomed && targetCapsule != null)
         {
 
-            Vector3 targetPosition = targetCapsule.position - targetCapsule.forward * 0f + Vector3.up * 0f;
+            Vector3 targetPosition = targetCapsule.position - targetCapsule.forward * 0f + Vector3.up * .67f;
 
             float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * 500;
             Xrotation -= mouseY;
