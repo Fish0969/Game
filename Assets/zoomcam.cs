@@ -14,6 +14,7 @@ public class zoomcam : MonoBehaviour
     private bool isZoomed = false;
     private float Xrotation;
     public GameObject crosshair;
+    public GameObject hair;
     
     void Start()
     {
@@ -32,8 +33,9 @@ public class zoomcam : MonoBehaviour
         
         if (Input.GetButtonDown("Zoom"))
         {
-            isZoomed = !isZoomed; 
+            isZoomed = !isZoomed;
             crosshair.SetActive(isZoomed);
+            hair.SetActive(!isZoomed);            
 
         }
 
