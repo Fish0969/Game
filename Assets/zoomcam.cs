@@ -35,7 +35,8 @@ public class zoomcam : MonoBehaviour
         {
             isZoomed = !isZoomed;
             crosshair.SetActive(isZoomed);
-            hair.SetActive(!isZoomed);            
+            hair.SetActive(!isZoomed);
+            
 
         }
 
