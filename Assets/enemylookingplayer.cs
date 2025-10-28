@@ -16,4 +16,6 @@ public class enemylookingplayer : MonoBehaviour
         movement = transform.forward * speed;
         rb.linearVelocity = new Vector3(movement.x, rb.linearVelocity.y, movement.z);
     }
+
+
 }

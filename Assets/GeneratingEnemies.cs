@@ -10,19 +10,22 @@ public class GeneratingEnemies : MonoBehaviour
 
     void Start()
     {
+
         StartCoroutine(Enemydrop());
+
     }
+
 
     IEnumerator Enemydrop()
     {
         while (enemyCount < 10)
         {
-            Xpos = Random.Range(-20, 10);
-            Zpos = Random.Range(3, 30);
+            Xpos = Random.Range(-20, 7);
+            Zpos = Random.Range(20, 40);
             Instantiate(enemy, new Vector3(Xpos, 1, Zpos), Quaternion.identity);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(3f);
             enemyCount+=1;
-        
+
         
         }
     }
