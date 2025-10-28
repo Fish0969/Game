@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class playermovement : MonoBehaviour
 {
-    [Header("Movement Settings")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private float sprintMultiplier = 1.5f;
     [SerializeField] private float mouseSensitivity = 5f;
     
-    [Header("Jump Settings")]
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private float groundCheckDistance = 0.3f;
     [SerializeField] private LayerMask groundMask = -1;
@@ -17,6 +15,7 @@ public class playermovement : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded;
     private bool isSprinting;
+    public Transform Camera;
 
     void Start()
     {
@@ -32,6 +31,9 @@ public class playermovement : MonoBehaviour
         rb.angularDamping = 0f;
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
@@ -94,6 +96,14 @@ public class playermovement : MonoBehaviour
         rotationY += mouseX * mouseSensitivity;
 
         transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
+
+        float mouseY = Input.GetAxis("Mouse Y");
+        float Xrotation = Camera.localEulerAngles.x - mouseY * mouseSensitivity;
+        Xrotation = (Xrotation > 180) ? Xrotation - 360 : Xrotation;
+        Xrotation = Mathf.Clamp(Xrotation, -90f, 90f);
+        Camera.localEulerAngles = new Vector3(Xrotation, 0f, 0f);
+        
+        
     }
 
 
