@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TriggerDoorController : MonoBehaviour
+public class TriggerDoorControllerMan : MonoBehaviour
 {
     [SerializeField] private Animator mydoor = null;
     [SerializeField] private GameObject pressureplate;
@@ -14,12 +14,12 @@ public class TriggerDoorController : MonoBehaviour
         {
             if (open)
             {
-                mydoor.Play("wdooropen", 0, 0.0f);
+                mydoor.Play("mandooropen", 0, 0.0f);
                 gameObject.SetActive(false);
             }
             if (close)
             {
-                mydoor.Play("wdoorclose", 0, 0.0f);
+                mydoor.Play("mandoorclose", 0, 0.0f);
                 gameObject.SetActive(false);
                 pressureplate.SetActive(false);
             }
