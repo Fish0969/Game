@@ -43,17 +43,20 @@ public class PickupController : MonoBehaviour
     }
     private void PickUp()
     {
-        equipped = true;
-        slotfull = true;
+        if (!slotfull)
+        {
+            equipped = true;
+            slotfull = true;
 
-        transform.SetParent(GunContainer);
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.Euler(Vector3.zero);
-        transform.localScale = Vector3.one;
+            transform.SetParent(GunContainer);
+            transform.localPosition = Vector3.zero;
+            transform.localRotation = Quaternion.Euler(Vector3.zero);
+            transform.localScale = Vector3.one;
 
-        rb.isKinematic = true;
-        coll.isTrigger = true;
-        gunScript.enabled = true;
+            rb.isKinematic = true;
+            coll.isTrigger = true;
+            gunScript.enabled = true;
+        }
 
     }
     private void Drop()
