@@ -1,3 +1,4 @@
+using TreeEditor;
 using UnityEngine;
 
 public class playermovement : MonoBehaviour
@@ -74,7 +75,7 @@ public class playermovement : MonoBehaviour
             
             rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
             
-            Debug.Log("Jump executed with force: " + jumpForce);
+            Debug.Log(jumpForce + "funny beans🤣");
         }
     }
 

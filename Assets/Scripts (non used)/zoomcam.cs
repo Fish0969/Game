@@ -12,15 +12,13 @@ public class zoomcam : MonoBehaviour
     [SerializeField]
     private float minWallClearance = 0.5f;
     
-    [SerializeField]
-    private float lookHeightOffset = 1.7f; 
+
 
     private Vector3 originalPosition;
     private Quaternion originalRotation;
     private bool isZoomed = false;
     private float Xrotation;
     public GameObject crosshair;
-    public GameObject hair;
 
     private const float DefaultDistance = 5f;
     private const float DefaultHeight = 2f;
@@ -49,7 +47,6 @@ public class zoomcam : MonoBehaviour
         {
             isZoomed = !isZoomed;
             crosshair.SetActive(isZoomed);
-            hair.SetActive(!isZoomed);
         }
 
 
