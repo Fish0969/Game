@@ -7029,6 +7029,7 @@ GameObject:
   - component: {fileID: 393475931}
   - component: {fileID: 393475930}
   - component: {fileID: 393475935}
+  - component: {fileID: 393475936}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -7139,7 +7140,7 @@ Transform:
   m_GameObject: {fileID: 393475929}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.23, y: 1, z: -11.26}
+  m_LocalPosition: {x: -19.23, y: 0.915, z: -11.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7159,7 +7160,7 @@ Rigidbody:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 0, y: 0.67, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -7172,9 +7173,31 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
+--- !u!95 &393475936
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393475929}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b278c73fa046f3546a580121fbfafa27, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &395353127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26599,6 +26622,7 @@ GameObject:
   - component: {fileID: 1423498295}
   - component: {fileID: 1423498300}
   - component: {fileID: 1423498301}
+  - component: {fileID: 1423498302}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -26774,6 +26798,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1423498302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423498294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e3bbc2ab243b74f95df0d3963b5b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  Health: 100
+  HealthScroll: {fileID: 2033099794}
 --- !u!1 &1432554994
 GameObject:
   m_ObjectHideFlags: 0
@@ -36767,6 +36805,7 @@ GameObject:
   - component: {fileID: 2033099796}
   - component: {fileID: 2033099795}
   - component: {fileID: 2033099794}
+  - component: {fileID: 2033099797}
   m_Layer: 5
   m_Name: Scrollbar
   m_TagString: Untagged
@@ -36838,7 +36877,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 238992191}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.2
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -36881,6 +36920,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033099792}
   m_CullTransparentMesh: 1
+--- !u!114 &2033099797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033099792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e3bbc2ab243b74f95df0d3963b5b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  Health: 0
+  HealthScroll: {fileID: 0}
 --- !u!1001 &2041961858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37327,8 +37380,8 @@ Transform:
   m_GameObject: {fileID: 2071074743}
   serializedVersion: 2
   m_LocalRotation: {x: 0.86602545, y: -0, z: -0, w: 0.49999994}
-  m_LocalPosition: {x: 0, y: 0.214, z: 0.525}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalPosition: {x: 0, y: 0.203, z: 0.543}
+  m_LocalScale: {x: 0.17359222, y: 0.17359222, z: 0.17359222}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 393475934}

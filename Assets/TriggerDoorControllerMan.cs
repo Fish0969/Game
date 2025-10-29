@@ -28,6 +28,8 @@ public class TriggerDoorControllerMan : MonoBehaviour
                 Dead2.Play("Dead2", 0, 0.0f);
                 gameObject.SetActive(false);
                 pressureplate.SetActive(false);
+
+                
             }
         }
     }

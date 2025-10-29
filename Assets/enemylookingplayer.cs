@@ -10,8 +10,9 @@ public class enemylookingplayer : MonoBehaviour
 
     void Update()
     {
-
-        this.gameObject.transform.LookAt(player);
+        Vector3 target = player.position;
+        target.y = transform.position.y;
+        this.gameObject.transform.LookAt(target);
 
         movement = transform.forward * speed;
         rb.linearVelocity = new Vector3(movement.x, rb.linearVelocity.y, movement.z);
