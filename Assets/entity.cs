@@ -16,8 +16,8 @@ public class entity : MonoBehaviour
         {
             health = value;
             Debug.Log(health);
-            
-            if (health <=0f)
+
+            if (health <= 0f)
             {
                 Destroy(gameObject);
             }
