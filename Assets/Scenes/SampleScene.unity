@@ -7303,7 +7303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcdcb6f135cdc8042936584e66e86740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  StartingHealth: 10
+  StartingHealth: 100
 --- !u!1001 &395353127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8014,7 +8014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397505bd9ef95e944a0b02999f4bf637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupController
-  gunScript: {fileID: 421673838}
+  gunScript: {fileID: 0}
   rb: {fileID: 421673842}
   coll: {fileID: 421673839}
   player: {fileID: 1423498299}
@@ -17649,7 +17649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345fc71295087de439fd055ae9c38e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Damage: 1
+  Damage: 15
   BulletRange: 5000
   PlayerCamera: {fileID: 2064347741}
 --- !u!65 &932546016
@@ -17707,12 +17707,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932546012}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 397505bd9ef95e944a0b02999f4bf637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupController
-  gunScript: {fileID: 932546014}
+  gunScript: {fileID: 0}
   rb: {fileID: 932546017}
   coll: {fileID: 932546016}
   player: {fileID: 1423498299}
@@ -33948,6 +33948,8 @@ GameObject:
   - component: {fileID: 1836405847}
   - component: {fileID: 1836405846}
   - component: {fileID: 1836405845}
+  - component: {fileID: 1836405849}
+  - component: {fileID: 1836405850}
   m_Layer: 0
   m_Name: Laser Gun
   m_TagString: Untagged
@@ -33964,7 +33966,7 @@ Transform:
   m_GameObject: {fileID: 1836405843}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -0.034350246, y: -0.1310004, z: 0.2870016}
+  m_LocalPosition: {x: -0.034350246, y: -0.1310004, z: 0.15}
   m_LocalScale: {x: 0.3, y: 0.4, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33985,28 +33987,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   PlayerCamera: {fileID: 2064347744}
-  OnLaserShoot:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1836405845}
-        m_TargetAssemblyTypeName: RayCastGun, Assembly-CSharp
-        m_MethodName: Shoot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  FireCooldown: 0
   LaserOrigin: {fileID: 1155744792}
   gunRange: 50
-  fireRate: 0.1
-  Damage: 1
-  BulletRange: 50
-  playerCamera: {fileID: 2064347741}
+  fireRate: 1
 --- !u!120 &1836405846
 LineRenderer:
   serializedVersion: 2
@@ -34173,6 +34156,54 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836405843}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1836405849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836405843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe241e39da9ce6649a95c18921dd170a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaserDamage
+  Damage: 2
+  BulletRange: 50
+  playercamera: {fileID: 2064347741}
+--- !u!114 &1836405850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836405843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b2d93b4a4f1fb94b89768e02cf28a8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gun
+  OnGunShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1836405849}
+        m_TargetAssemblyTypeName: LaserDamage, Assembly-CSharp
+        m_MethodName: OnLaserShoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  FireCooldown: 0.1
+  Automatic: 1
+  bulletprefab: {fileID: 0}
+  targetp: {fileID: 0}
+  PlayerCamera: {fileID: 2064347741}
+  bulletspeed: 10
 --- !u!1 &1836769986 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d18fd089fbcd97f44a76072342fa8bfe, type: 3}

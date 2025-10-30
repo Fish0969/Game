@@ -31,8 +31,9 @@ public class Gun : MonoBehaviour
             {
                 if (CurrentCooldown <= 0f)
                 {
-                    var bullet = Instantiate(bulletprefab, targetp.position, targetp.rotation);
-                    bullet.GetComponent<Rigidbody>().linearVelocity = targetp.forward * bulletspeed;
+                    //var bullet = Instantiate(bulletprefab, targetp.position, targetp.rotation);
+                    //bullet.GetComponent<Rigidbody>().linearVelocity = targetp.forward * bulletspeed;
+                    ///////////////////////////////////////////////////////////////////////////////////
                     OnGunShoot?.Invoke();
                     CurrentCooldown = FireCooldown;
                 }
@@ -45,8 +46,9 @@ public class Gun : MonoBehaviour
                 if (CurrentCooldown <= 0f)
                 {
                     
-                    var bullet = Instantiate(bulletprefab, targetp.position, targetp.rotation);
-                    bullet.GetComponent<Rigidbody>().linearVelocity = targetp.forward * bulletspeed;
+                    //var bullet = Instantiate(bulletprefab, targetp.position, targetp.rotation);
+                    //bullet.GetComponent<Rigidbody>().linearVelocity = targetp.forward * bulletspeed;
+                    /////////////////////////////////////////////////////////////////////////////
                     OnGunShoot?.Invoke();
                     CurrentCooldown = FireCooldown;
                 }

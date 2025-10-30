@@ -4,15 +4,20 @@ using UnityEngine.Events;
 
 public class RayCastGun : MonoBehaviour
 {
+    //public UnityEvent OnLaserShoot;
+    //private float CurrentCooldown;
+    //public float FireCooldown;
     public Camera PlayerCamera;
-    public UnityEvent OnLaserShoot;
-    public float FireCooldown = 1f;
-    private float CurrentCooldown;
     public Transform LaserOrigin;
     public float gunRange = 50f;
     public float fireRate = 0.2f;
 
     LineRenderer laserLine;
+    
+        void Start()
+    {
+        //CurrentCooldown = FireCooldown;
+    }
     void Awake()
     {
         laserLine = GetComponent<LineRenderer>();
@@ -21,6 +26,7 @@ public class RayCastGun : MonoBehaviour
 
     void Update()
     {
+        laserLine.enabled = false;
         if (Input.GetMouseButton(0))
         {
             laserLine.enabled = true;
@@ -30,11 +36,9 @@ public class RayCastGun : MonoBehaviour
             if (Physics.Raycast(rayOrigin, PlayerCamera.transform.forward, out hit, gunRange))
             {
                 laserLine.SetPosition(1, hit.point);
-                if (CurrentCooldown <= 0)
-                {
-                    OnLaserShoot?.Invoke();
-                    CurrentCooldown = FireCooldown;
-                }
+                //OnLaserShoot?.Invoke();
+                //CurrentCooldown = FireCooldown;
+
             }
 
             else
@@ -45,27 +49,9 @@ public class RayCastGun : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             laserLine.enabled = false;
-        }
-    }
-    void Start()
-    {
-        CurrentCooldown = FireCooldown;
-    }
+        }        //CurrentCooldown -= Time.deltaTime;
 
-    public float Damage;
-    public Transform playerCamera;
-
-    public void Shoot()
-    {
-        Ray gunRay = new Ray(playerCamera.position, playerCamera.forward);
-        if (Physics.Raycast(gunRay, out RaycastHit hitInfo, gunRange))
-        {
-            if (hitInfo.collider.gameObject.TryGetComponent(out entity enemy))
-            {
-                enemy.Health -= Damage;
-            }
-        }
     }
+    
 }
-
 
