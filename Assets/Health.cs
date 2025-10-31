@@ -1,5 +1,8 @@
 using TMPro;
+using UnityEditor.PackageManager.Requests;
+using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
@@ -39,8 +42,14 @@ public class Health : MonoBehaviour
 
     public void Damage(float damagepoints)
     {
-            if (playerHealth > 0f)
-                playerHealth -= damagepoints;
+        if (playerHealth > 0f)
+            playerHealth -= damagepoints;
+        if (playerHealth <= 0f)
+        {
+            Debug.Log("You died");
+            //playerHealth += 100f;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
     }
     public void Heal(float healingPoints)
