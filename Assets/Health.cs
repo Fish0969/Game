@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
-        healthText.text = playerHealth + "%";
+        healthText.text = playerHealth.ToString("F0") + "%";
         if (playerHealth > maxPlayerHealth) playerHealth = maxPlayerHealth;
 
         lerpSpeed = 3f * Time.deltaTime;

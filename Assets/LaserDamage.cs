@@ -16,7 +16,7 @@ public class LaserDamage : MonoBehaviour
         Ray gunRay = new Ray(playercamera.position, playercamera.forward);
         if (Physics.Raycast(gunRay, out RaycastHit hitInfo, BulletRange))
         {
-            if (hitInfo.collider.gameObject.TryGetComponent(out entity enemy)&& hitInfo.collider.isTrigger)
+            if (hitInfo.collider.gameObject.TryGetComponent(out entity enemy))
             {
                 enemy.Health -= Damage;
             }
