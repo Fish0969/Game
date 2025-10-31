@@ -1,6 +1,5 @@
 using TreeEditor;
 using UnityEngine;
-
 public class playermovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
@@ -17,6 +16,7 @@ public class playermovement : MonoBehaviour
     private bool isGrounded;
     private bool isSprinting;
     public Transform Camera;
+    public GameObject resetpov;
 
     void Start()
     {
@@ -33,8 +33,8 @@ public class playermovement : MonoBehaviour
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     void Update()
@@ -61,22 +61,24 @@ public class playermovement : MonoBehaviour
 
     private void HandleInput()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        moveDirection = new Vector3(horizontal, 0f, vertical).normalized;
+        
+        
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+            moveDirection = new Vector3(horizontal, 0f, vertical).normalized;
 
-        isSprinting = Input.GetKey(KeyCode.LeftShift);
+            isSprinting = Input.GetKey(KeyCode.LeftShift);
 
-        if (isGrounded && Input.GetButtonDown("Jump"))
-        {
-            Vector3 vel = rb.linearVelocity;
-            vel.y = 0f;
-            rb.linearVelocity = vel;
-            
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
-            
-            Debug.Log(jumpForce + "funny beans🤣");
-        }
+            if (isGrounded && Input.GetButtonDown("Jump"))
+            {
+                Vector3 vel = rb.linearVelocity;
+                vel.y = 0f;
+                rb.linearVelocity = vel;
+
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+
+                Debug.Log(jumpForce + "funny beans🤣");
+            } 
     }
 
     private void ApplyMovement()
@@ -93,17 +95,19 @@ public class playermovement : MonoBehaviour
 
     private void HandleRotation()
     {
-        float mouseX = Input.GetAxis("Mouse X");
-        rotationY += mouseX * mouseSensitivity;
+        if (!resetpov.activeSelf)
+        {
+            float mouseX = Input.GetAxis("Mouse X");
+            rotationY += mouseX * mouseSensitivity;
 
-        transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
+            transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
 
-        float mouseY = Input.GetAxis("Mouse Y");
-        float Xrotation = Camera.localEulerAngles.x - mouseY * mouseSensitivity;
-        Xrotation = (Xrotation > 180) ? Xrotation - 360 : Xrotation;
-        Xrotation = Mathf.Clamp(Xrotation, -90f, 90f);
-        Camera.localEulerAngles = new Vector3(Xrotation, 0f, 0f);
-        
+            float mouseY = Input.GetAxis("Mouse Y");
+            float Xrotation = Camera.localEulerAngles.x - mouseY * mouseSensitivity;
+            Xrotation = (Xrotation > 180) ? Xrotation - 360 : Xrotation;
+            Xrotation = Mathf.Clamp(Xrotation, -90f, 90f);
+            Camera.localEulerAngles = new Vector3(Xrotation, 0f, 0f);
+        }
         
     }
 

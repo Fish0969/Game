@@ -3,14 +3,17 @@ using UnityEngine;
 public class escToMenu : MonoBehaviour
 {
     public GameObject restartScreen;
-    public GameObject gameplay;
+    public GameObject cam;
+    public GameObject crosshair;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            gameplay.SetActive(false);
+            cam.SetActive(false);
             restartScreen.SetActive(true);
+            Time.timeScale = 0;
         }
+
     }
 }

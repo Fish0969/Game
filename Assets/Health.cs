@@ -2,6 +2,7 @@ using TMPro;
 using UnityEditor.PackageManager.Requests;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,6 +15,8 @@ public class Health : MonoBehaviour
     public GameObject characherchoser;
     public GameObject gameplay;
     public GameObject restart;
+    public GameObject continu;
+    public GameObject cam;
 
     private void Start()
     {
@@ -52,6 +55,8 @@ public class Health : MonoBehaviour
             Debug.Log("You died");
             gameplay.SetActive(false);
             restart.SetActive(true);
+            continu.SetActive(false);
+            cam.SetActive(true);
             
         
             

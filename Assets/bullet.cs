@@ -5,7 +5,7 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
     public float damagepoints;
-    [SerializeField] Collider monkey;
+    [SerializeField] PlayerCamera player;
     public void Start()
     {
         Destroy(gameObject, 10f);
