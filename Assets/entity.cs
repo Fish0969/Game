@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
+using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class entity : MonoBehaviour
 {
+    public UnityEvent DamagePlayer; 
     [SerializeField] private HPScript _healthbar;
     [SerializeField] private float StartingHealth;
     private float health;
     public float Health
+    
     {
         get
         {
@@ -30,7 +35,8 @@ public class entity : MonoBehaviour
     }
     void Start()
     {
-        Health = StartingHealth;
+        health = StartingHealth;
         _healthbar.UpdateHealthBar(StartingHealth, health);
     }
+
 }

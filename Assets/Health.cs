@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
 {
     public Text healthText;
     public Image healthBar;
-    float playerHealth, maxPlayerHealth = 100f;
+    public float playerHealth, maxPlayerHealth = 100f;
     float lerpSpeed;
 
     private void Start()
@@ -39,8 +39,8 @@ public class Health : MonoBehaviour
 
     public void Damage(float damagepoints)
     {
-        if (playerHealth > 0f)
-            playerHealth -= damagepoints;
+            if (playerHealth > 0f)
+                playerHealth -= damagepoints;
 
     }
     public void Heal(float healingPoints)

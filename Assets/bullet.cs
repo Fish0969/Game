@@ -1,18 +1,23 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
-    public float timetilldestroyed;
-    void Awake()
+    public float damagepoints;
+    [SerializeField] Collider monkey;
+    public void Start()
     {
-
+        Destroy(gameObject, 10f);
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(this.gameObject);
-        
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<Health>().Damage(damagepoints);
+            
+        }
         
     }
 }
