@@ -7,10 +7,12 @@ public class GeneratingEnemies : MonoBehaviour
     public int Xpos;
     public int Zpos;
     public int enemyCount;
+    public Transform spawnedEnemys;
+    
 
-    void Start()
+    void OnEnable()
     {
-
+        
         StartCoroutine(Enemydrop());
 
     }
@@ -22,8 +24,8 @@ public class GeneratingEnemies : MonoBehaviour
         {
             Xpos = Random.Range(-20, 7);
             Zpos = Random.Range(20, 40);
-            Instantiate(enemy, new Vector3(Xpos, 1, Zpos), Quaternion.identity);
-            yield return new WaitForSeconds(3f);
+            Instantiate(enemy, new Vector3(Xpos, 1, Zpos), Quaternion.identity, spawnedEnemys);
+            yield return new WaitForSeconds(2f);
             enemyCount+=1;
 
         

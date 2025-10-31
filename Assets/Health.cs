@@ -11,6 +11,9 @@ public class Health : MonoBehaviour
     public Image healthBar;
     public float playerHealth, maxPlayerHealth = 100f;
     float lerpSpeed;
+    public GameObject characherchoser;
+    public GameObject gameplay;
+    public GameObject restart;
 
     private void Start()
     {
@@ -47,8 +50,12 @@ public class Health : MonoBehaviour
         if (playerHealth <= 0f)
         {
             Debug.Log("You died");
-            //playerHealth += 100f;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            gameplay.SetActive(false);
+            restart.SetActive(true);
+            
+        
+            
+
         }
 
     }

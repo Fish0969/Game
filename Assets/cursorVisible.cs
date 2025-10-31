@@ -3,7 +3,6 @@ using UnityEngine;
 public class cursorVisible : MonoBehaviour
 {
     public GameObject gameplay;
-    public GameObject characterchoser;
     void Start()
     {
     }
@@ -14,6 +13,11 @@ public class cursorVisible : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+        }
+        if (gameplay.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 
