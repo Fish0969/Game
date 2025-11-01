@@ -10,11 +10,11 @@ public class Scores : MonoBehaviour
     
     void Start()
     {
-        score += damagepoints * 100;
+        //score += damagepoints * 100;
     }
 
     void Update()
     {
-        scorew.text = score.ToString("Score=")+ score ;
+        //scorew.text = score.ToString("Score=")+ score ;
     }
 }

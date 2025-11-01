@@ -5,6 +5,7 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class entity : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class entity : MonoBehaviour
     [SerializeField] private float StartingHealth;
     private float health;
     public float Health
-    
+
     {
         get
         {
@@ -29,12 +30,14 @@ public class entity : MonoBehaviour
             if (health <= 0f)
             {
                 Destroy(gameObject);
+
             }
 
         }
     }
     void Start()
     {
+
         health = StartingHealth;
         _healthbar.UpdateHealthBar(StartingHealth, health);
     }

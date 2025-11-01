@@ -20,13 +20,13 @@ public class GeneratingEnemies : MonoBehaviour
 
     IEnumerator Enemydrop()
     {
-        while (enemyCount < 10)
+        while (enemyCount < 100)
         {
             Xpos = Random.Range(-20, 7);
             Zpos = Random.Range(20, 40);
             Instantiate(enemy, new Vector3(Xpos, 1, Zpos), Quaternion.identity, spawnedEnemys);
-            yield return new WaitForSeconds(2f);
-            enemyCount+=1;
+            yield return new WaitForSeconds(.1f);
+            enemyCount += 1;
 
         
         }
