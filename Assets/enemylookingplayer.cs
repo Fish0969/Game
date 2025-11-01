@@ -14,8 +14,9 @@ public class enemylookingplayer : MonoBehaviour
 
     private void Update()
     {
-      if (attackTimer > 0)
-        attackTimer -= Time.deltaTime;
+        if (attackTimer > 0)
+            attackTimer -= Time.deltaTime;
+        
     }
 
     private void FixedUpdate()
