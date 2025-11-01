@@ -11,6 +11,7 @@ public class playerLookAtEnemySC2 : MonoBehaviour
     public float X;
     public float Y;
     public float distance;
+    
 
 
     void Update()
@@ -42,6 +43,8 @@ public class playerLookAtEnemySC2 : MonoBehaviour
                 Y = -1;
             }
         }
+        
+        
         Vector3 target = enemy.position;
         target.y = transform.position.y;
         transform.LookAt(target);
