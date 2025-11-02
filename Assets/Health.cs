@@ -52,14 +52,15 @@ public class Health : MonoBehaviour
             playerHealth -= damagepoints;
         if (playerHealth <= 0f)
         {
+
             Debug.Log("You died");
             gameplay.SetActive(false);
             restart.SetActive(true);
             continu.SetActive(false);
             cam.SetActive(true);
-            
-        
-            
+
+
+
 
         }
 
