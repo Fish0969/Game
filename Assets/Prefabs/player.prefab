@@ -1545,7 +1545,6 @@ GameObject:
   - component: {fileID: 7603988573898644756}
   - component: {fileID: 2794233614970103566}
   - component: {fileID: 5241128851289714133}
-  - component: {fileID: 8435477806103500836}
   - component: {fileID: 3909003816849363797}
   - component: {fileID: 5413969116944750018}
   m_Layer: 3
@@ -1696,33 +1695,6 @@ MonoBehaviour:
   restart: {fileID: 0}
   continu: {fileID: 0}
   cam: {fileID: 0}
---- !u!54 &8435477806103500836
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4505340093354593301}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 112
-  m_CollisionDetection: 1
 --- !u!95 &3909003816849363797
 Animator:
   serializedVersion: 7
@@ -2329,6 +2301,7 @@ MonoBehaviour:
   Damage: 0.5
   BulletRange: 50
   playercamera: {fileID: 1008683490657310578}
+  score: {fileID: 0}
 --- !u!114 &1838920461596067095
 MonoBehaviour:
   m_ObjectHideFlags: 0
