@@ -1,6 +1,4 @@
 using TMPro;
-using UnityEditor.PackageManager.Requests;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
