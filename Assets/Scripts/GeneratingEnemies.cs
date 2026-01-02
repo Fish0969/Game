@@ -8,6 +8,7 @@ public class GeneratingEnemies : MonoBehaviour
      int Xpos;
      int Zpos;
     public int enemyCount;
+    public int maxEnemyCount;
     public Transform spawnedEnemys;
     public TMPro.TextMeshProUGUI scoreText;
     public GameObject player;
@@ -16,11 +17,16 @@ public class GeneratingEnemies : MonoBehaviour
     public float interval;
     
 
+
     void OnEnable()
     {
-        
-        StartCoroutine(Enemydrop());
 
+        Invoke("EnemyCoroutine", 2f);
+
+    }
+    void EnemyCoroutine()
+    {
+        StartCoroutine(Enemydrop());
     }
     void Update()
     {
@@ -37,7 +43,7 @@ public class GeneratingEnemies : MonoBehaviour
 
     IEnumerator Enemydrop()
     {
-        while (enemyCount < 500)
+        while (enemyCount < maxEnemyCount)
         {
             Xpos = Random.Range(-20, 13);
             Zpos = Random.Range(3, 42);
