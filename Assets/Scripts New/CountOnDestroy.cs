@@ -8,6 +8,6 @@ public class CountOnDestroy : MonoBehaviour
 
         transform.parent?
             .GetComponent<ParentCounter>()?
-            .ChildDestroyed();
+            .ChildDestroyed(transform.position);
     }
 }

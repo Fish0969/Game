@@ -1,15 +1,15 @@
-using TMPro;
 using UnityEngine;
 
 public class ParentCounter : MonoBehaviour
 {
-    public TextMeshProUGUI EnemiesKilled;
     public int destroyedCount;
+    public Vector3 lastDestroyedPosition;
 
-    public void ChildDestroyed()
+    public void ChildDestroyed(Vector3 position)
     {
         destroyedCount++;
-        //Debug.Log("Enemies killed: " + destroyedCount);
-        EnemiesKilled.text = ("Enemies killed: " + destroyedCount.ToString());
+        lastDestroyedPosition = position;
+
+        Debug.Log(destroyedCount+ "dd" +  position);
     }
 }
