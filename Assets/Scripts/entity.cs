@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using NUnit.Framework;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -8,9 +11,11 @@ using UnityEngine.UI;
 
 public class entity : MonoBehaviour
 {
-    public UnityEvent DamagePlayer; 
+    public UnityEvent DamagePlayer;
     [SerializeField] private HPScript _healthbar;
     [SerializeField] private float StartingHealth;
+    public int enemiesKilled;
+    public TextMeshProUGUI enemiesKilledTMP;
     private float health;
     public float Health
 
@@ -25,10 +30,11 @@ public class entity : MonoBehaviour
             Debug.Log(health);
             _healthbar.UpdateHealthBar(StartingHealth, health);
 
-
             if (health <= 0f)
             {
+
                 Destroy(gameObject);
+
 
             }
 
@@ -36,9 +42,18 @@ public class entity : MonoBehaviour
     }
     void Start()
     {
-
+        enemiesKilled = 0;
         health = StartingHealth;
         _healthbar.UpdateHealthBar(StartingHealth, health);
     }
 
+    void Update()
+    {
+        // if (gameObject.IsDestroyed())
+        // {
+        //     Debug.Log(enemiesKilled + " enemies killed");
+        //     enemiesKilled += 1;
+        // }
+        // enemiesKilledTMP.text = enemiesKilled.ToString();
+    }
 }

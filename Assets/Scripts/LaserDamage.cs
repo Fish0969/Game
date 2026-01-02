@@ -12,7 +12,6 @@ public class LaserDamage : MonoBehaviour
     public float Damage;
     public float BulletRange;
     public Transform playercamera;
-    public Text score;
     
 
     public void OnLaserShoot()

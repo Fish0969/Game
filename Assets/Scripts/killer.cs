@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class killer : MonoBehaviour
 {
+    public GameObject player;
+    public GameObject enemy;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (enemy)
         {
             Debug.Log("You Died");
             Destroy(other.gameObject);
