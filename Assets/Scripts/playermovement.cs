@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 public class playermovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
@@ -16,6 +17,7 @@ public class playermovement : MonoBehaviour
     private bool isSprinting;
     public Transform Camera;
     public GameObject resetpov;
+    
 
     void Start()
     {

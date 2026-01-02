@@ -1,12 +1,13 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Analytics;
+using UnityEngine.Rendering.RenderGraphModule;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public Text healthText;
+    public TextMeshProUGUI healthText;
     public Image healthBar;
     public float playerHealth, maxPlayerHealth = 100f;
     float lerpSpeed;
@@ -23,7 +24,7 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
-        healthText.text = playerHealth.ToString("F0") + "%";
+        healthText.text = playerHealth.ToString("F0");
         if (playerHealth > maxPlayerHealth) playerHealth = maxPlayerHealth;
 
         lerpSpeed = 3f * Time.deltaTime;
@@ -40,7 +41,7 @@ public class Health : MonoBehaviour
 
     void ColorChanger()
     {
-        Color healthColor = Color.Lerp(Color.red, Color.green, (playerHealth / maxPlayerHealth));
+        Color healthColor = Color.Lerp(Color.red, Color.forestGreen, (playerHealth / maxPlayerHealth));
         healthBar.color = healthColor;
     }
 
