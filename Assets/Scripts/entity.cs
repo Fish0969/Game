@@ -11,12 +11,12 @@ using UnityEngine.UI;
 
 public class entity : MonoBehaviour
 {
-    public UnityEvent DamagePlayer;
+    // public UnityEvent DamagePlayer;
     [SerializeField] private HPScript _healthbar;
     [SerializeField] private float StartingHealth;
     public int enemiesKilled;
     public TextMeshProUGUI enemiesKilledTMP;
-    private float health;
+    public float health;
     public float Health
 
     {
@@ -27,15 +27,13 @@ public class entity : MonoBehaviour
         set
         {
             health = value;
-            Debug.Log(health);
+            // Debug.Log(health);
             _healthbar.UpdateHealthBar(StartingHealth, health);
 
             if (health <= 0f)
             {
-
-                Destroy(gameObject);
-
-
+                Invoke("Dead", .1f);
+                
             }
 
         }
@@ -47,13 +45,11 @@ public class entity : MonoBehaviour
         _healthbar.UpdateHealthBar(StartingHealth, health);
     }
 
-    void Update()
+    public void Dead()
     {
-        // if (gameObject.IsDestroyed())
-        // {
-        //     Debug.Log(enemiesKilled + " enemies killed");
-        //     enemiesKilled += 1;
-        // }
-        // enemiesKilledTMP.text = enemiesKilled.ToString();
+        enemiesKilledTMP.text = enemiesKilled.ToString();
+        enemiesKilled += 1;
+        Destroy(gameObject);
+
     }
 }

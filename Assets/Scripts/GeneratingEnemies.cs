@@ -11,11 +11,12 @@ public class GeneratingEnemies : MonoBehaviour
     public int enemyCount;
     public int maxEnemyCount;
     public Transform spawnedEnemys;
-    public TMPro.TextMeshProUGUI scoreText;
+    public TMPro.TextMeshProUGUI waves;
     public GameObject player;
     public int WavesCount;
     public float interval;
     public Transform Enemies;
+    public int enemiesKilled;
 
 
 
@@ -38,15 +39,18 @@ public class GeneratingEnemies : MonoBehaviour
             if (enemyCount == maxEnemyCount)
             {
                 {
+                    Debug.Log("");
                     WavesCount += 1;
                     enemyCount = 0;
                     StartCoroutine(Enemydrop());
                     Debug.Log("Wave " + (WavesCount - 1) + " cleared");
+                    waves.text = ("Wave " + WavesCount);
                     if (enemyCount == 0)
                     {
-                        maxEnemyCount = maxEnemyCount * WavesCount;
+                        maxEnemyCount =  maxEnemyCount * WavesCount;
                         interval = interval / WavesCount;
                     }
+                
                 }
             }
         }
@@ -57,6 +61,7 @@ public class GeneratingEnemies : MonoBehaviour
     {
         while (enemyCount < maxEnemyCount)
         {
+            
             Debug.Log("Wave " + (WavesCount) + " started");
             Xpos = Random.Range(-20, 13);
             Zpos = Random.Range(3, 42);
