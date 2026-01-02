@@ -16,6 +16,7 @@ public class Health : MonoBehaviour
     public GameObject restart;
     public GameObject continu;
     public GameObject cam;
+    public GameObject ContinueB;
 
     private void Start()
     {
@@ -49,15 +50,16 @@ public class Health : MonoBehaviour
     {
         if (playerHealth > 0f)
             playerHealth -= damagepoints;
+            ContinueB.SetActive(true);
         if (playerHealth <= 0f)
         {
-
+            ContinueB.SetActive(false);
             Debug.Log("You died");
             gameplay.SetActive(false);
             restart.SetActive(true);
             continu.SetActive(false);
             cam.SetActive(true);
-
+            
 
 
 

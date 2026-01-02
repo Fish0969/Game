@@ -32,7 +32,7 @@ public class entity : MonoBehaviour
 
             if (health <= 0f)
             {
-                Invoke("Dead", .1f);
+                Destroy(gameObject);
                 
             }
 
@@ -45,11 +45,8 @@ public class entity : MonoBehaviour
         _healthbar.UpdateHealthBar(StartingHealth, health);
     }
 
-    public void Dead()
-    {
-        enemiesKilledTMP.text = enemiesKilled.ToString();
-        enemiesKilled += 1;
-        Destroy(gameObject);
-
-    }
+    // public void Dead()
+    // {
+    //     Destroy(gameObject);
+    // }
 }

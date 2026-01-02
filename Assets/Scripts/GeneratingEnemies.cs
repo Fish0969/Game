@@ -21,6 +21,7 @@ public class GeneratingEnemies : MonoBehaviour
 
 
 
+
     void OnEnable()
     {
         WavesCount = 1;
@@ -47,7 +48,7 @@ public class GeneratingEnemies : MonoBehaviour
                     waves.text = ("Wave " + WavesCount);
                     if (enemyCount == 0)
                     {
-                        maxEnemyCount =  maxEnemyCount * WavesCount;
+                        maxEnemyCount =  5 * WavesCount;
                         interval = interval / WavesCount;
                     }
                 
