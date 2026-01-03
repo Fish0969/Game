@@ -25,6 +25,7 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
+        
         healthText.text = playerHealth.ToString("F0");
         if (playerHealth > maxPlayerHealth) playerHealth = maxPlayerHealth;
 
@@ -53,7 +54,7 @@ public class Health : MonoBehaviour
             ContinueB.SetActive(true);
         if (playerHealth <= 0f)
         {
-            ContinueB.SetActive(false);
+            ContinueB.SetActive(false); 
             Debug.Log("You died");
             gameplay.SetActive(false);
             restart.SetActive(true);

@@ -15,7 +15,6 @@ public class entity : MonoBehaviour
     [SerializeField] private HPScript _healthbar;
     [SerializeField] private float StartingHealth;
     public int enemiesKilled;
-    public TextMeshProUGUI enemiesKilledTMP;
     public float health;
     public float Health
 

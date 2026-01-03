@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class RotateCharachter : MonoBehaviour
 {
+    public int rotateSpeed;
     void Update()
     {
-        transform.Rotate(Vector3.up * 50 * Time.deltaTime);
+        transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
 
-    }//sa
+    }
 }

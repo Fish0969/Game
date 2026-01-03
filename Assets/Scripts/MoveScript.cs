@@ -1,15 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 [RequireComponent(typeof(CharacterController))]
 public class MoveScript : MonoBehaviour
 {
+ public UnityEvent HealingAction;
  public Camera playerCamera;
  public float walkingSpeed = 6f;
  public float runningSpeed = 12f;
@@ -32,6 +35,7 @@ public TextMeshProUGUI StaminaNumber;
     
     void Start()
     {
+
         characterController = GetComponent<CharacterController>();
 
 
@@ -104,9 +108,15 @@ public TextMeshProUGUI StaminaNumber;
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
-        if (CurrentStamina < MaxStamina)
+        
+        //Check this out later
+        if (CurrentStamina > 61)
         {
-
+            if (Input.GetKey(KeyCode.Q))
+            {
+                HealingAction.Invoke();
+                CurrentStamina -= 60;
+            }
         }
     }
     private IEnumerator RechargeStamina(){
@@ -114,6 +124,7 @@ public TextMeshProUGUI StaminaNumber;
 
         while (CurrentStamina < MaxStamina)
         {
+
             CurrentStamina += ChargeRate / 10f;
             if (CurrentStamina > MaxStamina) CurrentStamina = MaxStamina;
             StaminaBar.fillAmount = CurrentStamina / MaxStamina;
