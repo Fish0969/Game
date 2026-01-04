@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 
@@ -9,14 +10,19 @@ public class ParentCounter : MonoBehaviour
     public int lucky1;
     public int lucky2;
     public GameObject Hearth;
+    public int killedEnemies;
+    public GameObject spawnPrefab; // assign in Inspector
 
     public void ChildDestroyed(Vector3 position)
     {
+        killedEnemies++;
+        Killed.text = ("Enemies killed: " + killedEnemies);
+        lucky1 = Random.Range(1, 8);
+        lucky2 = Random.Range(1, 8);
 
-        destroyedCount++;
-        lastDestroyedPosition = position;
+        if (lucky1 == lucky2)
+        {
 
-        Debug.Log("destroyedCount +  +  position");
-        Killed.text = destroyedCount.ToString();
-    }
+        Instantiate(spawnPrefab, position, Quaternion.identity); 
+        }}
 }

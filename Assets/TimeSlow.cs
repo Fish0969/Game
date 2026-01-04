@@ -8,11 +8,14 @@ public class TimeSlow : MonoBehaviour
     public float staminaDrain;
     void Update()
     {
-        staminaDrain = (gameObject.GetComponent<MoveScript>().CurrentStamina);
         if (!menu.activeSelf)
-        if (Input.GetKey(KeyCode.F))
+        
         {
-            Time.timeScale = .2f;
+            while (Input.GetKey(KeyCode.F))
+            {
+                Time.timeScale = .2f;
+                Debug.Log("Time slow");
+            }
         }
     }
 }

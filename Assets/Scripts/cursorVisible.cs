@@ -6,6 +6,7 @@ public class cursorVisible : MonoBehaviour
     public GameObject reset;
     void Start()
     {
+        Time.timeScale = 1;
     }
 
     void Update()
@@ -22,7 +23,7 @@ public class cursorVisible : MonoBehaviour
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
-                Time.timeScale = 1;
+                //Time.timeScale = 1;
             }
         }
         if (gameplay.activeSelf)
