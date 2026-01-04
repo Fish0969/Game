@@ -11,10 +11,15 @@ public class TimeSlow : MonoBehaviour
         if (!menu.activeSelf)
         
         {
-            while (Input.GetKey(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 Time.timeScale = .2f;
                 Debug.Log("Time slow");
+            }
+            if (Input.GetKeyUp(KeyCode.F))
+            {
+                Time.timeScale = 1;
+                Debug.Log("Time slow stopped");
             }
         }
     }

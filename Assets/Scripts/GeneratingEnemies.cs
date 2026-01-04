@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using JetBrains.Annotations;
 using Unity.VisualScripting;
@@ -17,9 +18,25 @@ public class GeneratingEnemies : MonoBehaviour
     public float interval;
     public Transform Enemies;
     public int enemiesKilled;
+    public float Timerer;
+
+    public GameObject BuffButtons;
 
 
-
+    public void WavesCounter()
+    {
+        BuffButtons.SetActive(true);
+        WavesCount += 1;
+        enemyCount = 0;
+        StartCoroutine(Enemydrop());
+        Debug.Log("Wave " + (WavesCount - 1) + " cleared");
+        waves.text = ("Wave " + WavesCount);
+        if (enemyCount == 0)
+        {
+            maxEnemyCount = 5 * WavesCount;
+            interval = interval / WavesCount;
+        }
+    }
 
 
     void OnEnable()
@@ -39,33 +56,30 @@ public class GeneratingEnemies : MonoBehaviour
 
             if (enemyCount == maxEnemyCount)
             {
+                BuffButtons.SetActive(true);
+
+                if (!BuffButtons.activeSelf)
                 {
-                    Debug.Log("");
-                    WavesCount += 1;
-                    enemyCount = 0;
-                    StartCoroutine(Enemydrop());
-                    Debug.Log("Wave " + (WavesCount - 1) + " cleared");
-                    waves.text = ("Wave " + WavesCount);
-                    if (enemyCount == 0)
                     {
-                        maxEnemyCount =  5 * WavesCount;
-                        interval = interval / WavesCount;
+                        waves.text = (Timerer + " seconds left till next round");
+                        Invoke("WavesCounter", Timerer);
+
                     }
-                
                 }
             }
         }
     }
 
 
+
     IEnumerator Enemydrop()
     {
         while (enemyCount < maxEnemyCount)
         {
-            
+
             Debug.Log("Wave " + (WavesCount) + " started");
-            Xpos = Random.Range(-20, 13);
-            Zpos = Random.Range(3, 42);
+            Xpos = UnityEngine.Random.Range(-20, 13);
+            Zpos = UnityEngine.Random.Range(3, 42);
             Instantiate(enemy, new Vector3(Xpos, 1, Zpos), Quaternion.identity, spawnedEnemys);
             yield return new WaitForSeconds(interval);
             enemyCount += 1;

@@ -110,14 +110,6 @@ public TextMeshProUGUI StaminaNumber;
         }
         
         //Check this out later
-        if (CurrentStamina > 61)
-        {
-            if (Input.GetKey(KeyCode.Q))
-            {
-                HealingAction.Invoke();
-                CurrentStamina -= 60;
-            }
-        }
     }
     private IEnumerator RechargeStamina(){
         yield return new WaitForSeconds(1f);

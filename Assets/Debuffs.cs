@@ -1,36 +1,19 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-public class UnluckyButton : MonoBehaviour, IInteractable
+public class Debuffs : MonoBehaviour
 {
-        public GameObject enemy;
-        public GameObject player;
-        private int RandomNumber;
-        public GameObject buttons;
 
- public void Interact()
-    {
-        UnluckyButtonPress();
-        Debug.Log("Button pressed");
-        Invoke("DisActivate", 2f);
-    }
-
-
-
-    public void DisActivate()
-    {
-        buttons.SetActive(false);
-    }
-
-
+    public GameObject enemy;
+    public GameObject player;
+    public int RandomNumber;
     public void UnluckyButtonPress()
     {
         RandomNumber = Random.Range(1,10);
         Debug.Log(RandomNumber);
         if (RandomNumber == 1)
         {
-         enemy.GetComponent<enemylookingplayer>().speed = 15f;   
-         Debug.Log("Rolled 1");        
+         player.GetComponent<MoveScript>().walkingSpeed = 1;   
         }
                 if (RandomNumber == 2)
         {
