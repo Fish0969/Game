@@ -16,7 +16,6 @@ public GameObject Parent;
     void Update()
     {
         KillCount = Parent.GetComponent<ParentCounter>().destroyedCount;
-        Debug.Log(KillCount);
         
     }
 }

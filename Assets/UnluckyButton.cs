@@ -12,14 +12,14 @@ public class UnluckyButton : MonoBehaviour, IInteractable
     {
         UnluckyButtonPress();
         Debug.Log("Button pressed");
-        Invoke("DisActivate", 2f);
+        buttons.SetActive(false);
     }
 
 
 
     public void DisActivate()
     {
-        buttons.SetActive(false);
+        
     }
 
 
@@ -29,8 +29,9 @@ public class UnluckyButton : MonoBehaviour, IInteractable
         Debug.Log(RandomNumber);
         if (RandomNumber == 1)
         {
-         enemy.GetComponent<enemylookingplayer>().speed = 3f;   
-         Debug.Log("Rolled 1");        
+         player.GetComponent<MoveScript>().walkingSpeed = player.GetComponent<MoveScript>().walkingSpeed*0.8f;   
+         Debug.Log("Rolled 1");   
+        
         }
                 if (RandomNumber == 2)
         {
