@@ -25,7 +25,6 @@ public class GeneratingEnemies : MonoBehaviour
 
     public void WavesCounter()
     {
-        BuffButtons.SetActive(true);
         WavesCount += 1;
         enemyCount = 0;
         StartCoroutine(Enemydrop());

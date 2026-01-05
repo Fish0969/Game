@@ -13,7 +13,7 @@ public class entity : MonoBehaviour
 {
     // public UnityEvent DamagePlayer;
     [SerializeField] private HPScript _healthbar;
-    [SerializeField] private float StartingHealth;
+    [SerializeField] public  float StartingHealth;
     public int enemiesKilled;
     public float health;
     public float Health

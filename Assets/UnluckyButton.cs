@@ -29,7 +29,7 @@ public class UnluckyButton : MonoBehaviour, IInteractable
         Debug.Log(RandomNumber);
         if (RandomNumber == 1)
         {
-         enemy.GetComponent<enemylookingplayer>().speed = 15f;   
+         enemy.GetComponent<enemylookingplayer>().speed = 3f;   
          Debug.Log("Rolled 1");        
         }
                 if (RandomNumber == 2)
