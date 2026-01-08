@@ -56,21 +56,35 @@ public float EnemyOriginalHealth;
 public float EnemyOriginalAttackSpeed;
 public float EnemyOriginalAttackRange;
 public float EnemyOriginalWaves;
+    #endregion
+
+#region OriginalPlayerStatsText
+public TextMeshProUGUI originalWalkText;
+public TextMeshProUGUI originalRunText;
+public TextMeshProUGUI originalDamageText;
+public TextMeshProUGUI originalHealthText;
+public TextMeshProUGUI originalStaminaText;
+public TextMeshProUGUI originalStaminaDrainText;
 #endregion
-
-    MoveScript move;
-    Health health;
-    LaserDamage laserDamage;
-    DamageGun gunDamage;
-
-    enemylookingplayer enemyLook;
-    entity enemyEntity;
-    GeneratingEnemies genEnemies;
+    #region ComponentReferences
+        MoveScript move;
+        Health health;
+        LaserDamage laserDamage;
+        DamageGun gunDamage;
+    
+        enemylookingplayer enemyLook;
+        entity enemyEntity;
+        GeneratingEnemies genEnemies;
+    #endregion
 
     static readonly Color32 upColor = new Color32(0, 255, 0, 255);
     static readonly Color32 downColor = new Color32(255, 0, 0, 255);
     static readonly Color32 sameColor = new Color32(255, 255, 255, 255);
 
+    void Start()
+    {
+     
+    }
     void Awake()
     {
         if (Laser) laserDamage = Laser.GetComponent<LaserDamage>();
@@ -87,6 +101,14 @@ public float EnemyOriginalWaves;
 
     void Update()
     {
+        originalWalkText.text = originalWalk.ToString();
+     originalRunText.text = originalRun.ToString();
+     originalDamageText.text = originalDamage.ToString();
+     originalHealthText.text = originalHealth.ToString();
+     originalStaminaText.text = originalStamina.ToString();
+     originalStaminaDrainText.text = originalStaminaDrain.ToString();   
+
+
         #region IF
         if (Fred && Fred.activeSelf)
         {

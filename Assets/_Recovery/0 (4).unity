@@ -17609,7 +17609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &608958259
 Transform:
   m_ObjectHideFlags: 0
@@ -24053,7 +24053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &841122921
 Transform:
   m_ObjectHideFlags: 0
@@ -45145,17 +45145,11 @@ MonoBehaviour:
   EnemyAttackSpeedCurrent: {fileID: 1812304633}
   EnemyAttackRangeCurrent: {fileID: 1209540302}
   WaveOfEnemiesCurrent: {fileID: 2077887316}
-  originalWalk: 6
-  originalRun: 54
-  originalDamage: 1
-  originalHealth: 45
-  originalStamina: 11
-  originalStaminaDrain: 6
   EnemyOriginalWalk: 4
-  EnemyOriginalDamage: 20
+  EnemyOriginalDamage: 10
   EnemyOriginalHealth: 100
-  EnemyOriginalAttackSpeed: 2.1
-  EnemyOriginalAttackRange: 0.5
+  EnemyOriginalAttackSpeed: 0.5
+  EnemyOriginalAttackRange: 2.1
   EnemyOriginalWaves: 5
 --- !u!1 &1535398101
 GameObject:
@@ -64053,9 +64047,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7833283548496229478, guid: 01849bdb35cecd5428daa10fd159ba9e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9088843360790834661}
-    - targetCorrespondingSourceObject: {fileID: 1680680987096178077, guid: 01849bdb35cecd5428daa10fd159ba9e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 01849bdb35cecd5428daa10fd159ba9e, type: 3}
 --- !u!1 &4719010109818395661 stripped
 GameObject:
@@ -64208,6 +64199,10 @@ PrefabInstance:
     - target: {fileID: 8166394060084087673, guid: 808fbd960d8c7d9448b61e1510901997, type: 3}
       propertyPath: runningSpeed
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8166394060084087673, guid: 808fbd960d8c7d9448b61e1510901997, type: 3}
+      propertyPath: walkingSpeed
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8166394060084087673, guid: 808fbd960d8c7d9448b61e1510901997, type: 3}
       propertyPath: StaminaNumber

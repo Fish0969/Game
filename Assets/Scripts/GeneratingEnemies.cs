@@ -55,7 +55,6 @@ public class GeneratingEnemies : MonoBehaviour
 
             if (enemyCount == maxEnemyCount)
             {
-                BuffButtons.SetActive(true);
 
                 if (!BuffButtons.activeSelf)
                 {
@@ -82,6 +81,13 @@ public class GeneratingEnemies : MonoBehaviour
             Instantiate(enemy, new Vector3(Xpos, 1, Zpos), Quaternion.identity, spawnedEnemys);
             yield return new WaitForSeconds(interval);
             enemyCount += 1;
+        }
+        if (enemyCount == maxEnemyCount)
+        {
+            
+            
+            BuffButtons.SetActive(true);
+            
         }
     }
 }
