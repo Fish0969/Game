@@ -19,6 +19,7 @@ public class GeneratingEnemies : MonoBehaviour
     public Transform Enemies;
     public int enemiesKilled;
     public float Timerer;
+    public int timesWave;
 
     public GameObject BuffButtons;
 
@@ -32,7 +33,7 @@ public class GeneratingEnemies : MonoBehaviour
         waves.text = ("Wave " + WavesCount);
         if (enemyCount == 0)
         {
-            maxEnemyCount = 5 * WavesCount;
+            maxEnemyCount = timesWave * WavesCount;
             interval = interval / WavesCount;
         }
     }

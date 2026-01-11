@@ -156,7 +156,7 @@ public TextMeshProUGUI originalStaminaDrainText;
         SetStat(EnemyHealthCurrent, enemyEntity.StartingHealth, EnemyOriginalHealth);
         SetStat(EnemyAttackSpeedCurrent, enemyLook.attackInterval, EnemyOriginalAttackSpeed);
         SetStat(EnemyAttackRangeCurrent, enemyLook.detectionRadius, EnemyOriginalAttackRange);
-        SetStat(WaveOfEnemiesCurrent, genEnemies.maxEnemyCount, EnemyOriginalWaves);
+        SetStat(WaveOfEnemiesCurrent, genEnemies.timesWave, EnemyOriginalWaves);
 
         float damage = 0f;
         if (Weapon == Laser && laserDamage) damage = laserDamage.Damage;
@@ -173,7 +173,7 @@ public TextMeshProUGUI originalStaminaDrainText;
             EnemyAttackRangeCurrent.text = enemyLook.detectionRadius.ToString();
         }
         if (enemyEntity) EnemyHealthCurrent.text = enemyEntity.StartingHealth.ToString();
-        if (genEnemies) WaveOfEnemiesCurrent.text = genEnemies.maxEnemyCount.ToString();
+        if (genEnemies) WaveOfEnemiesCurrent.text = genEnemies.timesWave.ToString();
         #endregion
     }
 
